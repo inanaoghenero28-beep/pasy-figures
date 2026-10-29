@@ -1,45 +1,31 @@
-# PASy Figure Generation Script
+# PASy figures
 
-This repository contains the figure generation script (Cell 6) for the manuscript:
+`make_figures.py` generates Figures 1–3 of the manuscript *Performance Modeling for Isolated Industrial Operations: A Data Envelopment Analysis Framework* (Inana, O.). It contains no hard-coded results. Every value it plots is read from the two result files in `runs/`.
 
-**"Performance Modeling for Isolated Industrial Operations: A Data Envelopment 
-Analysis Framework"**  
-Oghenero Orevaoghene Inana  
-Adlore Business Enterprise Limited, Benin City, Nigeria  
-Submitted to: Operations Research Forum (Springer Nature)
+## Files
 
-## Script
+| File | Contents |
+|---|---|
+| `PASy_Figures.ipynb` | Colab notebook that runs the figure script and shows the figures |
+| `make_figures.py` | Figure script |
+| `runs/paper_results.json` | Every statistic reported in the manuscript, for all 12 runs, with the run metadata |
+| `runs/baseline_s42/daily_classified.csv` | Daily scores and annual-quartile classes of the 336 steady-state days |
 
-`cell6_figure_generation.py` produces the three manuscript figures:
+## Run in Colab
 
-- **Fig1.eps / Fig1.png** — PASy framework pipeline architecture diagram (Section 3.3)
-- **Fig2.eps / Fig2.png** — Daily geometric efficiency score timeline by quartile 
-  classification (Section 4.2)
-- **Fig3.eps / Fig3.png** — Monthly distribution of geometric efficiency scores, 
-  box plots (Section 4.5.1)
+Open the notebook in Colab:
+https://colab.research.google.com/github/inanaoghenero28-beep/pasy-figures/blob/main/PASy_Figures.ipynb
 
-## Requirements
+Then choose Runtime → Run all.
 
-- Python 3 (Google Colab environment)
-- matplotlib, pandas, numpy (pre-installed in Colab)
-- Access to the PASy Google Sheets workbook (COMPUTATION_SHEET and 
-  EFFICIENCY_RATINGS worksheets)
-- Cells 1, 2, and 4 of the PASy implementation notebook must be run before Cell 6
+## Run locally
 
-## Data
+Requirements: Python 3.10 or later, numpy, pandas and matplotlib.
 
-The underlying dataset is publicly available on Zenodo:  
-**DOI: https://doi.org/10.5281/zenodo.20218539**
+```bash
+python make_figures.py runs figs
+```
 
-The supplementary extended file is available at:  
-**DOI: https://doi.org/10.5281/zenodo.17281985**
+This writes `Fig1`, `Fig2` and `Fig3` to `figs/` in EPS, PDF and PNG format.
 
-## Journal Compliance
-
-Figures are exported as EPS (vector, primary submission format) and PNG (preview).  
-Font: DejaVu Sans. Width: 6.85 inches (174 mm). No titles embedded in artwork.  
-File naming follows Springer Nature guidelines: Fig1, Fig2, Fig3.
-
-## Contact
-
-frontdesk@adlorebusiness.ng
+The full dataset and results are in the Zenodo deposit cited in the manuscript.
